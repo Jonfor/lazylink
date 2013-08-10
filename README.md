@@ -1,3 +1,3 @@
-MozillaWiki - Linkify
-=====================
+LazyLink
+========
 Initial commit.
