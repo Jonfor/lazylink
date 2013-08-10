@@ -5,6 +5,7 @@ import re
 
 BUG_REG = re.compile(r'(bug\s?)([0-9]+)', re.IGNORECASE)
 
+# TODO: PEP8
 def main():
     args = set_and_parse_args()
     for f in args.files:
@@ -18,6 +19,7 @@ def set_and_parse_args():
 
 def lazylink_file(f):
     for line in f:
+        # TODO: Extract this out so more regex can be registered.
         match = BUG_REG.search(line)
         if match is None:
             print line
