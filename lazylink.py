@@ -1,11 +1,17 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
 from argparse import ArgumentParser
+import json
 import re
+import urllib2
+
+BZ_URL = 'https://api-dev.bugzilla.mozilla.org/test/1.3/'
 
 BUG_REG = re.compile(r'(bug\s?)([0-9]+)', re.IGNORECASE)
 
 # TODO: PEP8
+# TODO: Cache JSON in /tmp.
+# TODO: Use API to search for bugs assigned in the past week?
 def main():
     args = set_and_parse_args()
     for f in args.files:
@@ -34,8 +40,10 @@ def lazylink_file(f):
         print out
 
 def get_bugzilla_desc(bug_no):
-    # TODO: Scrape some webpages. Or find an API. Or something.
-    return 'placeholder description'
+    url = BZ_URL + 'bug/' + bug_no
+    # TODO: Catch exceptions.
+    bug_info = json.load(urllib2.urlopen(url))
+    return bug_info['summary']
 
 if __name__ == '__main__':
     main()
