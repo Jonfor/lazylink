@@ -1,0 +1,3 @@
+MozillaWiki - Linkify
+=====================
+Initial commit.
