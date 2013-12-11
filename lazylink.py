@@ -5,7 +5,8 @@ import json
 import re
 import urllib2
 
-BZ_URL = 'https://api-dev.bugzilla.mozilla.org/test/1.3/'
+#BZ_URL = 'https://api-dev.bugzilla.mozilla.org/test/1.3/'
+BZ_URL = 'https://api-dev.bugzilla.mozilla.org/1.3/'
 
 BUG_REG = re.compile(r'(bug\s?)([0-9]+)', re.IGNORECASE)
 
